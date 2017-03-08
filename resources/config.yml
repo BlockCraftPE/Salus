@@ -21,7 +21,7 @@
 
    Max-Hacking-Times: 5
 
-#Which color should be used in SAC?
+#Which color should be used in Salus?
 #Supported colors:
 # 0 = BLACK
 # 1 = DARK_BLUE
@@ -48,19 +48,17 @@
    MaxHackingExceededCommands:
 
    - "ban %PLAYER%"
-   - "banipbyname %PLAYER%"
-   - "bancidbyname %PLAYER%"
 
-#Should SAC show a message when someone gets kicked?
+#Should Salus show a message when someone gets kicked?
 #If yes, which message should be shown?
 
-   KickPlayerMessageBool: false
+   KickPlayerMessageBool: true
    KickPlayerMessage: "[Salus] > %PLAYER% was kicked for hacking. I am always watching you."
 
-#Should SAC show a message when someone gets banned?
+#Should Salus show a message when someone gets banned?
 #If yes, which message should be shown?
 
-   BanPlayerMessageBool: false
+   BanPlayerMessageBool: true
    BanPlayerMessage: "[Salus] > %PLAYER% was BANNED for hacking. I am always watching you."
 
 
@@ -240,7 +238,7 @@
 #Do you want to enable advanced ForceOP check?
 #READ AntiForceOP.txt BEFORE ENABLING!
 
-   ForceOP: true
+   ForceOP: false
 
 #Which Permission should ForceOP check?
 #THIS NEEDS TO BE AN EXISTING PERMISSION
@@ -300,7 +298,7 @@
 
 #//////////////////////////////////////////////////////
 #//                                                  //
-#//     SAC by DarkWav.                              //
+#//     Salus by Driesboy.                              //
 #//     Distributed under the AntiCheat License.     //
 #//     Do not redistribute in modified form!        //
 #//     All rights reserved.                         //

@@ -1,10 +1,10 @@
 <?php
-namespace DarkWav\SAC;
+namespace Driesboy\Salus;
 
 use pocketmine\scheduler\PluginTask;
 use pocketmine\utils\TextFormat;
 use pocketmine\command\ConsoleCommandSender;
-use DarkWav\SAC\Observer;
+use Driesboy\Salus\Observer;
 
 class KickTask extends PluginTask
 {

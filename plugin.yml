@@ -1,53 +1,52 @@
-name: SAC
-main: DarkWav\SAC\SAC
+name: Salus
+main: Driesboy\Salus\Salus
 version: 3.2.1
 load: STARTUP
 enable: STARTUP
-author: DarkWav
+author: Driesboy
 api: [3.0.0-ALPHA1,3.0.0-ALPHA2,3.0.0-ALPHA3,3.0.0-ALPHA4,3.0.0-ALPHA5,3.0.0-ALPHA6,3.0.0-ALPHA7,3.0.0-ALPHA8,3.0.0-ALPHA9,3.0.0-ALPHA10,3.0.0]
 commands:
       shadowanticheat:
            description: Shows ShadowAntiCheat version
-           aliases: ["ShadowAntiCheat","AntiCheat","SAC"]
-      sac:
+           aliases: ["ShadowAntiCheat","AntiCheat","Salus"]
+      Salus:
            description: Shows ShadowAntiCheat version
-           aliases: ["ShadowAntiCheat","AntiCheat","SAC"]
+           aliases: ["ShadowAntiCheat","AntiCheat","Salus"]
 permissions:
     legitop:
         description: "A permission."
         default: false
-    sac:
-        description: "Allows to use all sac features."
+    Salus:
+        description: "Allows to use all Salus features."
         default: false
         children:
-            sac.admin:
+            Salus.admin:
                 description: "Get notified when someone is hacking."
                 default: op
-            sac.fly:
+            Salus.fly:
                 description: "A permission."
                 default: false
-            sac.glide:
+            Salus.glide:
                 description: "A permission."
                 default: false
-            sac.speed:
+            Salus.speed:
                 description: "A permission."
                 default: false
-            sac.noclip:
+            Salus.noclip:
                 description: "A permission."
                 default: false
-            sac.reach:
+            Salus.reach:
                 description: "A permission."
                 default: false
-            sac.instantkill:
+            Salus.instantkill:
                 description: "A permission."
                 default: false
-            sac.killaura:
+            Salus.killaura:
                 description: "A permission."
                 default: false
-            sac.regen:
+            Salus.regen:
                 description: "A permission."
                 default: false
-            sac.forcegamemode:
+            Salus.forcegamemode:
                 description: "A permission."
                 default: false
-

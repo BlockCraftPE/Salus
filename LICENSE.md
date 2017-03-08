@@ -1,4 +1,4 @@
-# DarkWav License 2.3 (DVLv2.3)
+# Driesboy License 2.3 (DVLv2.3)
 
 You are free to:
 
