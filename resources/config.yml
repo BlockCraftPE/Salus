@@ -48,18 +48,20 @@
    MaxHackingExceededCommands:
 
    - "ban %PLAYER%"
+   - "banipbyname %PLAYER%"
+   - "bancidbyname %PLAYER%"
 
 #Should SAC show a message when someone gets kicked?
 #If yes, which message should be shown?
 
-   KickPlayerMessageBool: true
-   KickPlayerMessage: "[SAC] > %PLAYER% was kicked for hacking. I am always watching you."
+   KickPlayerMessageBool: false
+   KickPlayerMessage: "[Salus] > %PLAYER% was kicked for hacking. I am always watching you."
 
 #Should SAC show a message when someone gets banned?
 #If yes, which message should be shown?
 
-   BanPlayerMessageBool: true
-   BanPlayerMessage: "[SAC] > %PLAYER% was BANNED for hacking. I am always watching you."
+   BanPlayerMessageBool: false
+   BanPlayerMessage: "[Salus] > %PLAYER% was BANNED for hacking. I am always watching you."
 
 
 #Enable verbose output???
@@ -89,11 +91,11 @@
 
 #Wich Message Sould be shown if Fly is detected?
 
-   Fly-Message: "[SAC] > Fly is not allowed!"
+   Fly-Message: "[Salus] > Fly is not allowed!"
 
 #Which Log Message Sould be shown if Fly is detected?
 
-   Fly-LogMessage: "[SAC] > %PLAYER% is hacking Fly!"
+   Fly-LogMessage: "[Salus] > %PLAYER% is hacking Fly!"
 
 #----------------KillAura-----------------#
 #BETA, REPORT BUGS!
@@ -147,11 +149,11 @@
 
 #Wich Message Sould be shown if KillAura is detected?
 
-   KillAura-Message: "[SAC] > KillAura is not allowed!"
+   KillAura-Message: "[Salus] > KillAura is not allowed!"
 
 #Which Log Message Sould be shown if KillAura is detected?
 
-   KillAura-LogMessage: "[SAC] > %PLAYER% is hacking KillAura!"
+   KillAura-LogMessage: "[Salus] > %PLAYER% is hacking KillAura!"
 
 #------------------Regen------------------#
 #Do you want to enable Regen check?
@@ -165,11 +167,11 @@
 
 #Wich Message Sould be shown if Regen is detected?
 
-   Regen-Message: "[SAC] > Regen is not allowed!"
+   Regen-Message: "[Salus] > Regen is not allowed!"
 
 #Which Log Message Sould be shown if Regen is detected?
 
-   Regen-LogMessage: "[SAC] > %PLAYER% is hacking Regen!"
+   Regen-LogMessage: "[Salus] > %PLAYER% is hacking Regen!"
 
 #-----------------Speed-------------------#
 #Do you want to enable Speed check?
@@ -192,11 +194,11 @@
 
 #Wich Message Sould be shown if Speed is detected?
 
-   Speed-Message: "[SAC] > Speed is not allowed!"
+   Speed-Message: "[Salus] > Speed is not allowed!"
 
 #Which Log Message Sould be shown if Speed is detected?
 
-   Speed-LogMessage: "[SAC] > %PLAYER% is hacking Speed!"
+   Speed-LogMessage: "[Salus] > %PLAYER% is hacking Speed!"
 
 #-----------------Reach-------------------#
 #Do you want to enable Reach check?
@@ -225,11 +227,11 @@
 
 #Wich Message Sould be shown if Glide is detected?
 
-   Glide-Message: "[SAC] > Glide is not allowed!"
+   Glide-Message: "[Salus] > Glide is not allowed!"
 
 #Which Log Message Sould be shown if Glide is detected?
 
-   Glide-LogMessage: "[SAC] > %PLAYER% is hacking Glide!"
+   Glide-LogMessage: "[Salus] > %PLAYER% is hacking Glide!"
 
 #----------------ForceOP------------------#
 #######################################################
@@ -238,7 +240,7 @@
 #Do you want to enable advanced ForceOP check?
 #READ AntiForceOP.txt BEFORE ENABLING!
 
-   ForceOP: false
+   ForceOP: true
 
 #Which Permission should ForceOP check?
 #THIS NEEDS TO BE AN EXISTING PERMISSION
@@ -269,11 +271,11 @@
 
 #Which Message Should be shown if NoClip is detected?
 
-   NoClip-Message: "[SAC] > NoClip is not allowed!"
+   NoClip-Message: "[Salus] > NoClip is not allowed!"
 
 #Which Log Message Sould be shown if NoClip is detected?
 
-   NoClip-LogMessage: "[SAC] > %PLAYER% is hacking NoClip!"
+   NoClip-LogMessage: "[Salus] > %PLAYER% is hacking NoClip!"
 
 #--------------ForceGameMode--------------#
 #######################################################
@@ -290,11 +292,11 @@
 
 #Which Message Should be shown if ForceGameMode is detected?
 
-   ForceGameMode-Message: "[SAC] > ForceGameMode is not allowed!"
+   ForceGameMode-Message: "[Salus] > ForceGameMode is not allowed!"
 
 #Which Log Message Sould be shown if ForceGameMode is detected?
 
-   ForceGameMode-LogMessage: "[SAC] > %PLAYER% is hacking ForceGameMode!"
+   ForceGameMode-LogMessage: "[Salus] > %PLAYER% is hacking ForceGameMode!"
 
 #//////////////////////////////////////////////////////
 #//                                                  //
