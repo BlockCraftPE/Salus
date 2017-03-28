@@ -28,8 +28,6 @@ class Salus extends PluginBase
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new KickTask($this), 1);
     @mkdir($this->getDataFolder());
     $this->saveDefaultConfig();
-    $this->saveResource("AntiForceOP.txt");
-    $this->saveResource("AntiForceGM.txt");
     $cl              = $this->getConfig()->get("Color");
 
     $Config = $this->getConfig();
