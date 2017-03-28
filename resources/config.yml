@@ -47,18 +47,28 @@
 
    MaxHackingExceededCommands:
 
-   - "ban %PLAYER%"
+   - "jail %PLAYER% 1 1440 Hacking"
+   - "jail %PLAYER% 2 1440 Hacking"
+   - "jail %PLAYER% 3 1440 Hacking"
+   - "jail %PLAYER% 4 1440 Hacking"
+   - "jail %PLAYER% 5 1440 Hacking"
+   - "jail %PLAYER% 6 1440 Hacking"
+   - "jail %PLAYER% 7 1440 Hacking"
+   - "jail %PLAYER% 8 1440 Hacking"
+   - "jail %PLAYER% 9 1440 Hacking"
+   - "jail %PLAYER% 10 1440 Hacking"
+
 
 #Should Salus show a message when someone gets kicked?
 #If yes, which message should be shown?
 
-   KickPlayerMessageBool: true
+   KickPlayerMessageBool: false
    KickPlayerMessage: "[Salus] > %PLAYER% was kicked for hacking. I am always watching you."
 
 #Should Salus show a message when someone gets banned?
 #If yes, which message should be shown?
 
-   BanPlayerMessageBool: true
+   BanPlayerMessageBool: false
    BanPlayerMessage: "[Salus] > %PLAYER% was BANNED for hacking. I am always watching you."
 
 
@@ -205,7 +215,7 @@
 #-----------------Reach-------------------#
 #Do you want to enable Reach check?
 
-   Reach: true
+   Reach: false
 
 #How much Range may a player have to be legit?
 #This wont affect killaura detection, it just blocks the hits.
@@ -216,7 +226,7 @@
 #NEVER set this to lower than 1
 
    MaxRange:  3.9
-   
+
 #-----------------Glide-------------------#
 #Do you want to enable Glide check?
 #NoDownlGlide is handled by Fly.
@@ -242,7 +252,7 @@
 #Do you want to enable advanced ForceOP check?
 #READ AntiForceOP.txt BEFORE ENABLING!
 
-   ForceOP: false
+   ForceOP: true
 
 #Which Permission should ForceOP check?
 #THIS NEEDS TO BE AN EXISTING PERMISSION
@@ -257,7 +267,7 @@
 #Lag with stairs has been highly decreased with the update
 #3.0.2. IT STILL MAY CAUSE GLICHES!
 
-   NoClip: true
+   NoClip: false
 
 #Which Punishment should take place?
 #I do NOT reccomand to kick players for NoClip due to glitches!
@@ -290,7 +300,7 @@
 #I WONT GUARANTEE FOR ANY FALSE POSITIVES WITH THAT!
 #READ AntiForceGM.txt BEFORE ENABLING!
 
-   FoceGameMode: false
+   ForceGameMode: false
 
 #Which Message Should be shown if ForceGameMode is detected?
 
