@@ -147,7 +147,7 @@
 #use AGGRESIVE if you have a smaller server or massive
 #problems with KillAura hackers.
 
-   AKAHAD: 2
+   AKAHAD: 1
 
 #How many times must a player hack before detection?
 #35 Should work fine. (Standard)
@@ -157,7 +157,7 @@
 #For AGGRESIVE  AKAHAD: 45
 #Increase if KillAura causes false poitives.
 
-   KillAura-Threshold: 35
+   KillAura-Threshold: 25
 
 #Wich Message Sould be shown if KillAura is detected?
 
