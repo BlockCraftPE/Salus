@@ -47,16 +47,8 @@
 
    MaxHackingExceededCommands:
 
-   - "jail %PLAYER% 1 1440 Hacking"
-   - "jail %PLAYER% 2 1440 Hacking"
-   - "jail %PLAYER% 3 1440 Hacking"
-   - "jail %PLAYER% 4 1440 Hacking"
-   - "jail %PLAYER% 5 1440 Hacking"
-   - "jail %PLAYER% 6 1440 Hacking"
-   - "jail %PLAYER% 7 1440 Hacking"
-   - "jail %PLAYER% 8 1440 Hacking"
-   - "jail %PLAYER% 9 1440 Hacking"
-   - "jail %PLAYER% 10 1440 Hacking"
+   - "tempban %PLAYER% 86400 hacking"
+   - "tempban-ip %PLAYER% 86400 hacking"
 
 
 #Should Salus show a message when someone gets kicked?
@@ -113,7 +105,7 @@
 #a sanificant gamplay advantage, not useless bots.
 #TP-Aura is handled by Speed.
 
-   KillAura: true
+   KillAura: false
 
 #Advanced KillAura Heuristics And Detection (AKAHAD)
 #This is an advanced algorithm to catch a lot more
@@ -171,7 +163,7 @@
 #Do you want to enable Regen check?
 #Stops INSANE regeneration.
 
-   Regen: true
+   Regen: false
 
 #Wich Punishment should take place if Regen is detected?
 
