@@ -20,9 +20,6 @@ permissions:
         description: "Allows to use all Salus features."
         default: false
         children:
-            rank.moderator:
-                description: "Get notified when someone is hacking."
-                default: op
             Salus.fly:
                 description: "A permission."
                 default: false
