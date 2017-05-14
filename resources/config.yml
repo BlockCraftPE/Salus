@@ -105,7 +105,7 @@
 #TP-Aura is handled by Speed. This is purely behavoir
 #based, it does not spawn any fake entities.
 
-   KillAura: true
+   KillAura: false
 
 #Angle (3rd-person-pvp prevention)
 #This will block hitting with impossible angles.
@@ -202,7 +202,7 @@
 #Do you want to enable Regen check?
 #Stops INSANE regeneration.
 
-   Regen: true
+   Regen: false
 
 #Wich Punishment should take place if Regen is detected?
 
