@@ -1,7 +1,7 @@
 ---
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
 #SalusAntiCheat main configuration file.
-#Current version: 3.2.0
+#Current version: 3.2.3
 #What should be blocked?
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
 #true = ENABLE
@@ -9,17 +9,11 @@
 #block = block Hack
 #kick = Player kick
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
-   Plugin-Version: 3.2.2
-   Config-Version: 3.5.4
+   Plugin-Version: 3.2.3
+   Config-Version: 3.5.5
 #Enables i am waching you message
 
    I-AM-WATCHING-YOU: true
-
-#Enable auto banning after an amount of kicks???
-#0 = Disabled
-#1 = Instant Ban
-
-   Max-Hacking-Times: 5
 
 #Which color should be used in Salus?
 #Supported colors:
@@ -42,22 +36,19 @@
 
    Color: 3
 
+#Enable auto banning after an amount of kicks???
+#0 = Disabled
+#1 = Instant Ban
+
+   Max-Hacking-Times: 5
+
 #What commands should be executed then?
 #Use %PLAYER% for the Players name.
 
-   MaxHackingExceededCommands:
+  MaxHackingExceededCommands:
 
-   - "jail %PLAYER% 1 1440 Hacking"
-   - "jail %PLAYER% 2 1440 Hacking"
-   - "jail %PLAYER% 3 1440 Hacking"
-   - "jail %PLAYER% 4 1440 Hacking"
-   - "jail %PLAYER% 5 1440 Hacking"
-   - "jail %PLAYER% 6 1440 Hacking"
-   - "jail %PLAYER% 7 1440 Hacking"
-   - "jail %PLAYER% 8 1440 Hacking"
-   - "jail %PLAYER% 9 1440 Hacking"
-   - "jail %PLAYER% 10 1440 Hacking"
-
+  - "tempban %PLAYER% 86400 hacking"
+  - "tempban-ip %PLAYER% 86400 hacking"
 
 #Should Salus show a message when someone gets kicked?
 #If yes, which message should be shown?
@@ -111,21 +102,31 @@
 #This also catches AimAura and KillAuraLegit.
 #This will block anything that gives the player
 #a sanificant gamplay advantage, not useless bots.
-#TP-Aura is handled by Speed.
+#TP-Aura is handled by Speed. This is purely behavoir
+#based, it does not spawn any fake entities.
 
    KillAura: true
+
+#Angle (3rd-person-pvp prevention)
+#This will block hitting with impossible angles.
+#(blocks hitting behind yourself)
+#This is pretty basic and will not cause false
+#positives or false alerts.
+#Do you want to enable Angle?
+
+   Angle: true
 
 #Advanced KillAura Heuristics And Detection (AKAHAD)
 #This is an advanced algorithm to catch a lot more
 #combat hacks. This is generally aggersive, but
 #you can make it even more agersive or rather
-#permissive, but i reccomand leaving it as it is.
+#permissive, but i recommend leaving it as it is.
 #How strong should AKAHAD be configured?
 #
 # 0 = DISABLE AKAHAD
 # 1 = PERMISSIVE
 # 2 = NORMAL
-# 3 = AGGRESIVE
+# 3 = AGGRESSIVE
 #
 # PREMISSIVE will cause close to zero false positives
 # even on large servers, but detection is slow and
@@ -136,28 +137,58 @@
 # I would recommand this setting because it is the most
 # efficent and has the most usability.
 #
-# AGGRESIVE will catch nearly every KillAura very fast,
+# AGGRESSIVE will catch nearly every KillAura very fast,
 # even triggerbots are detected. This configuration is
 # very agressive and may cause false positives depending
 # on the situation. If you set "KillAura-Threshold" to
-# 45 it can be very effective.
+# 45 it can be very effective. USE AT YOUR OWN RISK!
 #
 #I reccomand to use PERMISSIVE if you have a big server.
 #For other servers, use NORMAL for a normal server , only
-#use AGGRESIVE if you have a smaller server or massive
+#use AGGRESSIVE if you have a smaller server or massive
 #problems with KillAura hackers.
 
-   AKAHAD: 1
+   AKAHAD: 2
+
+#MacroCapture (Triggerbot/Macro detection)
+#This is a component of AKAHAD you can configure.
+#This will NOT work if AKAHAD is diabled!
+#
+# 0 = DISABLE MacroCapture
+# 1 = PREMISSIVE
+# 2 = AGGRESSIVE
+#
+# PREMISSIVE will catch some Macros and helps the KillAura
+# Check to perform better.
+# Works best with AKAHAD set to PREMISSIVE or NORMAL.
+#
+# AGGRESSIVE will catch nearly every combat hack in existance,
+# but should be used with high thresholds.
+# Works best with AKAHAD set to AGGRESSIVE.
+#
+#I would recommend to use AGGRESSIVE if you have many hackers,
+#for any other case use PERMISSIVE.
+
+   AKAHAD-MacroCapture: 1
+
+#AimbotCatcher
+#This is and old mechanisim to catch aimaura and aimbots in
+#general. It is known for causing a lot of false alerts
+#on windows 10 edition. it will work on MCPE but
+#it is a risk to activate it. I would NOT recommend to
+#enable this. USE AT YOUR OWN RISK!
+
+   AimbotCatcher: false
 
 #How many times must a player hack before detection?
 #35 Should work fine. (Standard)
 #NEVER set this lower than 25
 #For PREMISSIVE AKAHAD: 25
-#For NORMAL     AKAHAD: 35
-#For AGGRESIVE  AKAHAD: 45
+#For   NORMAL   AKAHAD: 35
+#For AGGRESSIVE AKAHAD: 45
 #Increase if KillAura causes false poitives.
 
-   KillAura-Threshold: 25
+   KillAura-Threshold: 35
 
 #Wich Message Sould be shown if KillAura is detected?
 
@@ -215,7 +246,7 @@
 #-----------------Reach-------------------#
 #Do you want to enable Reach check?
 
-   Reach: false
+   Reach: true
 
 #How much Range may a player have to be legit?
 #This wont affect killaura detection, it just blocks the hits.
@@ -267,7 +298,7 @@
 #Lag with stairs has been highly decreased with the update
 #3.0.2. IT STILL MAY CAUSE GLICHES!
 
-   NoClip: false
+   NoClip: true
 
 #Which Punishment should take place?
 #I do NOT reccomand to kick players for NoClip due to glitches!

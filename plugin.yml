@@ -1,6 +1,6 @@
 name: Salus
 main: Driesboy\Salus\Salus
-version: 3.2.2
+version: 3.2.3
 load: STARTUP
 enable: STARTUP
 author: Driesboy
@@ -20,7 +20,7 @@ permissions:
         description: "Allows to use all Salus features."
         default: false
         children:
-            Salus.admin:
+            rank.moderator:
                 description: "Get notified when someone is hacking."
                 default: op
             Salus.fly:
@@ -50,3 +50,4 @@ permissions:
             Salus.forcegamemode:
                 description: "A permission."
                 default: false
+

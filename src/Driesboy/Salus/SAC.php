@@ -28,15 +28,17 @@ class Salus extends PluginBase
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new KickTask($this), 1);
     @mkdir($this->getDataFolder());
     $this->saveDefaultConfig();
+    $this->saveResource("AntiForceOP.txt");
+    $this->saveResource("AntiForceGM.txt");
     $cl              = $this->getConfig()->get("Color");
-
+  
     $Config = $this->getConfig();
     $Logger = $this->getServer()->getLogger();
     $Server = $this->getServer();
-
+    
     $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     $Logger->info(TextFormat::ESCAPE."$cl" . "[Salus] > SalusAntiCheat Activated"            );
-    $Logger->info(TextFormat::ESCAPE."$cl" . "[Salus] > SalusAntiCheat v3.2.2 [Salus]");
+    $Logger->info(TextFormat::ESCAPE."$cl" . "[Salus] > SalusAntiCheat v3.2.3 [Shade]");
     $Logger->info(TextFormat::ESCAPE."$cl" . "[Salus] > Loading Modules");
     if($Config->get("ForceOP"    )) $Logger->info(TextFormat::ESCAPE."$cl"."[Salus] > Enabling AntiForceOP"    );
     if($Config->get("NoClip"     )) $Logger->info(TextFormat::ESCAPE."$cl"."[Salus] > Enabling AntiNoClip"     );
@@ -47,11 +49,11 @@ class Salus extends PluginBase
     if($Config->get("Speed"      )) $Logger->info(TextFormat::ESCAPE."$cl"."[Salus] > Enabling AntiSpeed"      );
     if($Config->get("Regen"      )) $Logger->info(TextFormat::ESCAPE."$cl"."[Salus] > Enabling AntiRegen"      );
 
-    if($Config->get("Config-Version") !== "3.5.4")
+    if($Config->get("Config-Version") !== "3.5.5")
     {
       $Logger->warning(TextFormat::ESCAPE."$cl"."[Salus] > Your Config is out of date!");
     }
-    if($Config->get("Plugin-Version") !== "3.2.2" and $Config->get("Plugin-Version") !== "3.2.1")
+    if($Config->get("Plugin-Version") !== "3.2.3")
     {
       $Logger->error(TextFormat::ESCAPE."$cl"."[Salus] > Your Config is incompatible with this plugin version, please update immediately!");
       $Server->shutdown();
@@ -63,7 +65,7 @@ class Salus extends PluginBase
       $name     = $player->getName();
       $oldhash  = null;
       $observer = null;
-
+      
       foreach ($this->PlayerObservers as $key=>$obs)
       {
         if ($obs->PlayerName == $name)
@@ -78,14 +80,14 @@ class Salus extends PluginBase
         unset($this->PlayerObservers[$oldhash]);
         $this->PlayerObservers[$hash] = $observer;
         $this->PlayerObservers[$hash]->PlayerRejoin();
-      }
+      }  
       else
       {
         $observer = new Observer($player, $this);
         $this->PlayerObservers[$hash] = $observer;
-        $this->PlayerObservers[$hash]->PlayerJoin();
-      }
-    }
+        $this->PlayerObservers[$hash]->PlayerJoin();      
+      }      
+    }  
   }
 
   public function onDisable()
@@ -98,7 +100,7 @@ class Salus extends PluginBase
     $Logger->info(TextFormat::ESCAPE."$cl"."[Salus] > SalusAntiCheat Deactivated");
     $Server->enablePlugin($this);
   }
-
+    
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args)
   {
     $Logger = $this->getServer()->getLogger();
@@ -121,10 +123,10 @@ class Salus extends PluginBase
     }
     if ($cmd->getName() === "Salus" or $cmd->getName() === "Salusanticheat")
     {
-      $sender->sendMessage(TextFormat::ESCAPE."$cl"."[Salus] > SalusAntiCheat v1.0 [Salus] (Driesboy)");
+      $sender->sendMessage(TextFormat::ESCAPE."$cl"."[Salus] > SalusAntiCheat v3.2.3 [Shade] (~Driesboy/Darku)");
     }
   }
-
+  
   public function NotifyAdmins($message)
   {
     $cl              = $this->getConfig()->get("Color");
@@ -138,9 +140,9 @@ class Salus extends PluginBase
           $player->sendMessage(TextFormat::ESCAPE."$cl" . $message);
         }
       }
-    }
-  }
-
+    }  
+  }  
+  
 }
 
 //////////////////////////////////////////////////////
