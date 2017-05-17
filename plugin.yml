@@ -1,52 +1,53 @@
 name: Salus
 main: Driesboy\Salus\Salus
-version: 3.2.3
+version: 3.2.5
 load: STARTUP
 enable: STARTUP
 author: Driesboy
-api: [3.0.0-ALPHA5,3.0.0-ALPHA6,3.0.0-ALPHA7,3.0.0-ALPHA8,3.0.0-ALPHA9,3.0.0-ALPHA10,3.0.0]
+api: [3.0.0-ALPHA1,3.0.0-ALPHA2,3.0.0-ALPHA3,3.0.0-ALPHA4,3.0.0-ALPHA5,3.0.0-ALPHA6,3.0.0-ALPHA7,3.0.0-ALPHA8,3.0.0-ALPHA9,3.0.0-ALPHA10,3.0.0]
 commands:
       Salusanticheat:
            description: Shows SalusAntiCheat version
            aliases: ["SalusAntiCheat","AntiCheat","Salus"]
-      Salus:
+      salus:
            description: Shows SalusAntiCheat version
            aliases: ["SalusAntiCheat","AntiCheat","Salus"]
 permissions:
     legitop:
         description: "A permission."
         default: false
-    Salus:
-        description: "Allows to use all Salus features."
+    salus:
+        description: "Allows to use all salus features."
         default: false
         children:
             rank.moderator:
                 description: "Get notified when someone is hacking."
                 default: op
-            Salus.fly:
+            salus.fly:
                 description: "A permission."
                 default: false
-            Salus.glide:
+            salus.glide:
                 description: "A permission."
                 default: false
-            Salus.speed:
+            salus.speed:
                 description: "A permission."
                 default: false
-            Salus.noclip:
+            salus.noclip:
                 description: "A permission."
                 default: false
-            Salus.reach:
+            salus.reach:
                 description: "A permission."
                 default: false
-            Salus.instantkill:
+            salus.instantkill:
                 description: "A permission."
                 default: false
-            Salus.killaura:
+            salus.killaura:
                 description: "A permission."
                 default: false
-            Salus.regen:
+            salus.regen:
                 description: "A permission."
                 default: false
-            Salus.forcegamemode:
+            salus.forcegamemode:
                 description: "A permission."
                 default: false
+

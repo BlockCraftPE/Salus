@@ -1,7 +1,7 @@
 ---
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
 #SalusAntiCheat main configuration file.
-#Current version: 3.2.3
+#Current version: 3.2.5
 #What should be blocked?
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
 #true = ENABLE
@@ -9,7 +9,7 @@
 #block = block Hack
 #kick = Player kick
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
-   Plugin-Version: 3.2.3
+   Plugin-Version: 3.2.5
    Config-Version: 3.5.5
 #Enables i am waching you message
 
@@ -45,10 +45,10 @@
 #What commands should be executed then?
 #Use %PLAYER% for the Players name.
 
-  MaxHackingExceededCommands:
+    MaxHackingExceededCommands:
 
-  - "tempban %PLAYER% 86400 hacking"
-  - "tempban-ip %PLAYER% 86400 hacking"
+    - "tempban %PLAYER% 86400 §3[Salus] > Using a modified client"
+    - "tempban-ip %PLAYER% 86400 §3[Salus] > Using a modified client"
 
 #Should Salus show a message when someone gets kicked?
 #If yes, which message should be shown?
@@ -105,7 +105,7 @@
 #TP-Aura is handled by Speed. This is purely behavoir
 #based, it does not spawn any fake entities.
 
-   KillAura: false
+   KillAura: true
 
 #Angle (3rd-person-pvp prevention)
 #This will block hitting with impossible angles.
@@ -202,7 +202,7 @@
 #Do you want to enable Regen check?
 #Stops INSANE regeneration.
 
-   Regen: false
+   Regen: true
 
 #Wich Punishment should take place if Regen is detected?
 
@@ -246,7 +246,7 @@
 #-----------------Reach-------------------#
 #Do you want to enable Reach check?
 
-   Reach: true
+   Reach: false
 
 #How much Range may a player have to be legit?
 #This wont affect killaura detection, it just blocks the hits.
@@ -298,7 +298,7 @@
 #Lag with stairs has been highly decreased with the update
 #3.0.2. IT STILL MAY CAUSE GLICHES!
 
-   NoClip: true
+   NoClip: false
 
 #Which Punishment should take place?
 #I do NOT reccomand to kick players for NoClip due to glitches!
@@ -331,7 +331,7 @@
 #I WONT GUARANTEE FOR ANY FALSE POSITIVES WITH THAT!
 #READ AntiForceGM.txt BEFORE ENABLING!
 
-   ForceGameMode: false
+   FoceGameMode: false
 
 #Which Message Should be shown if ForceGameMode is detected?
 

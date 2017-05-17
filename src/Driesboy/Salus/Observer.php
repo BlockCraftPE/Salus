@@ -272,11 +272,17 @@ class Observer
   }
 
 
+  public function OnBlockPlaceEvent($event)
+  {
+    $this->PlayerAirCounter--;
+  }
+
+
   public function PlayerRegainHealth($event)
   {
     if($this->GetConfigEntry("Regen"))
     {
-      if ($this->Player->hasPermission("Salus.regen")) return;
+      if ($this->Player->hasPermission("salus.regen")) return;
       $Reason2 = $event->getRegainReason();
       $tick    = (double)$this->Server->getTick(); 
       $tps     = (double)$this->Server->getTicksPerSecond();
@@ -416,7 +422,7 @@ class Observer
   # -------------------------------------------------------------------------------------
   public function CheckSpeedFlyGlide($event)
   {
-    if ($this->Player->hasPermission("Salus.fly")) return;
+    if ($this->Player->hasPermission("salus.fly")) return;
     if ($this->Player->getAllowFlight()) return;
     if ($this->GetConfigEntry("Speed") or $this->GetConfigEntry("Fly") or $this->GetConfigEntry("Glide"))
     {
@@ -464,7 +470,7 @@ class Observer
      
         if ($this->GetConfigEntry("Speed"))
         {
-          if (!$this->Player->hasPermission("Salus.speed"))
+          if (!$this->Player->hasPermission("salus.speed"))
           {
             # Anti Speed
             if ($this->Player->hasEffect(Effect::SPEED))
@@ -535,26 +541,35 @@ class Observer
     # No Fly, No Glide and Anti Speed
     if (!$this->SalusIsOnGround($this->Player))
     {
-      if ($this->y_pos_old > $this->y_pos_new)
+      if(    !in_array(Block::WATER               , $this->surroundings ) 
+         and !in_array(Block::STILL_WATER         , $this->surroundings )
+         and !in_array(Block::LAVA                , $this->surroundings )
+         and !in_array(Block::STILL_LAVA          , $this->surroundings )
+         and !in_array(Block::LADDER              , $this->surroundings )
+         and !in_array(Block::VINE                , $this->surroundings )
+         and !in_array(Block::COBWEB              , $this->surroundings ))
       {
-        # Player moves down. Check Glide Hack
-        if ($this->GetConfigEntry("Glide"))
+        if ($this->y_pos_old > $this->y_pos_new)
         {
-          if (!$this->Player->hasPermission("Salus.glide"))
+          # Player moves down. Check Glide Hack
+          if ($this->GetConfigEntry("Glide"))
           {
-            $this->PlayerGlideCounter++;
+            if (!$this->Player->hasPermission("salus.glide"))
+            {
+              $this->PlayerGlideCounter++;
+            }
           }
         }
-      }
-      elseif ($this->y_pos_old <= $this->y_pos_new)
-      {
-        # Player moves up or horizontal
-        if ($this->GetConfigEntry("Fly"))
+        elseif ($this->y_pos_old <= $this->y_pos_new)
         {
-          $this->PlayerAirCounter++;
-          if ($this->PlayerGlideCounter > 0)
+          # Player moves up or horizontal
+          if ($this->GetConfigEntry("Fly"))
           {
-            $this->PlayerGlideCounter--;
+            $this->PlayerAirCounter++;
+            if ($this->PlayerGlideCounter > 0)
+            {
+              $this->PlayerGlideCounter--;
+            }
           }
         }
       }
@@ -609,7 +624,7 @@ class Observer
     # No Clip
     if ($this->GetConfigEntry("NoClip"))
     {
-      if ($this->Player->hasPermission("Salus.noclip")) return;
+      if ($this->Player->hasPermission("salus.noclip")) return;
       $level   = $this->Player->getLevel();
       $pos     = new Vector3($this->Player->getX(), $this->Player->getY(), $this->Player->getZ());
       $BlockID = $level->getBlock($pos)->getId();
@@ -715,7 +730,7 @@ class Observer
   {
     if ($this->GetConfigEntry("ForceGameMode"))
     {
-      if ($this->Player->hasPermission("Salus.forcegamemode")) return;
+      if ($this->Player->hasPermission("salus.forcegamemode")) return;
       if(!$event->getPlayer()->isOp())
       {
         $message = $this->GetConfigEntry("ForceGameMode-LogMessage");
@@ -771,11 +786,11 @@ class Observer
     else           $delta_t    = 0; 
     
     #$this->Logger->debug(TextFormat::ESCAPE."$this->Colorized" . "[Salus] > Kill Aura Counter: $this->PlayerKillAuraCounter     V2: $this->PlayerKillAuraV2Counter  Speed: $this->x_speed");
-    
+    if ($this->Player->getGameMode() == 1 or $this->Player->getGameMode() == 3) return;
     // Kill Aura
     if ($this->GetConfigEntry("KillAura"))
     {
-      if (!$this->Player->hasPermission("Salus.killaura"))
+      if (!$this->Player->hasPermission("salus.killaura"))
       {
         if ($is_damaged_entity_a_player)
         {
@@ -796,9 +811,9 @@ class Observer
           $this->hs_hit_time = $this->hs_time_sum / $this->hs_arr_size;
           #$this->Logger->info(TextFormat::ESCAPE."$this->Colorized" . "[Salus] > THD $this->PlayerName : hittime = $this->hs_hit_time");
         
-          if ($this->hs_hit_time < 0.16)
+          if ($this->hs_hit_time < 0.0825)
           {
-            $this->PlayerHitCounter += 5;
+            $this->PlayerHitCounter += 2;
           }
           else
           {
@@ -904,7 +919,7 @@ class Observer
               }      
               #$this->Logger->info(TextFormat::ESCAPE."$this->Colorized" . "[Salus] > counter V1: $this->PlayerKillAuraCounter  V2: $this->PlayerKillAuraV2Counter distance: $distance_xz  deltat: $delta_t  speedx: $this->x_speed anglexz: $angle_xz");
             }
-            #$this->Logger->info(TextFormat::ESCAPE."$this->Colorized" . "[Salus] > counter V1: $this->PlayerKillAuraCounter  V2: $this->PlayerKillAuraV2Counter distance: $distance_xz  deltat: $delta_t  speedx: $this->x_speed anglexz: $angle_xz");
+            #$this->Logger->info(TextFormat::ESCAPE."$this->Colorized" . "AAA[Salus] > counter V1: $this->PlayerKillAuraCounter  V2: $this->PlayerKillAuraV2Counter distance: $distance_xz  deltat: $delta_t  speedx: $this->x_speed anglexz: $angle_xz");
           }  
       
           if (($this->PlayerKillAuraCounter >= $this->GetConfigEntry("KillAura-Threshold")) or ($this->PlayerKillAuraV2Counter >= $this->GetConfigEntry("KillAura-Threshold")))
@@ -923,7 +938,7 @@ class Observer
     //Reach Check
     if ($this->GetConfigEntry("Reach"))
     {
-      if (!$this->Player->hasPermission("Salus.reach"))
+      if (!$this->Player->hasPermission("salus.reach"))
       {
         $reach_distance = $damager_position->distance($damaged_entity_position); 
         #$this->Logger->debug(TextFormat::ESCAPE."$this->Colorized" . "[Salus] > Reach distance $this->PlayerName : $reach_distance");
