@@ -50,4 +50,3 @@ permissions:
             salus.forcegamemode:
                 description: "A permission."
                 default: false
-
