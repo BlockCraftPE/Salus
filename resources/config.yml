@@ -45,10 +45,10 @@
 #What commands should be executed then?
 #Use %PLAYER% for the Players name.
 
-    MaxHackingExceededCommands:
+   MaxHackingExceededCommands:
 
-    - "tempban %PLAYER% 86400 [Salus] Using a modified client"
-    - "tempban-ip %PLAYER% 86400 [Salus] Using a modified client"
+   - "tempban %PLAYER% 86400 [Salus] Using a modified client"
+   - "tempban-ip %PLAYER% 86400 [Salus] Using a modified client"
 
 #Should Salus show a message when someone gets kicked?
 #If yes, which message should be shown?
