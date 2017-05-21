@@ -47,8 +47,7 @@
 
    MaxHackingExceededCommands:
 
-   - "tempban %PLAYER% 86400 [Salus] Using a modified client"
-   - "tempban-ip %PLAYER% 86400 [Salus] Using a modified client"
+   - "nban %PLAYER% 1week [Salus] Using a modified client"
 
 #Should Salus show a message when someone gets kicked?
 #If yes, which message should be shown?
